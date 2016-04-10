@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/less/pack.css" />
+<script src="lib/seajs/sea.js"></script>
+<script src="lib/seajs-text/seajs-text.js"></script>
+<script>
+    seajs.config({
+        base: '/js',
+        alias: {
+            'jquery': '/lib/jquery/jquery.js',
+            'underscore': '/lib/underscore/underscore.js',
+            'backbone': '/lib/backbone/backbone.js',
+            'backbone.localstorage': '/lib/backbone.localstorage/backbone.localStorage.js',
+            'hogan': '/lib/hogan/hogan.js'
+        }
+    });
+    seajs.use('main');
+</script>
