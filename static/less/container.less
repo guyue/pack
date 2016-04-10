@@ -1,0 +1,28 @@
+.container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    background-color: #fff;
+    -webkit-overflow-scrolling: touch;
+
+    .header ~ & {
+        padding-top: 44px;
+    }
+
+    .header-nav ~ & {
+        padding-top: 81px;
+    }
+
+    &.container-fixed {
+        padding-top: 69px;
+        .container-shop {
+            position: fixed;
+            top: 90px;;
+            z-index: 10;
+            top: 81px;
+        }
+    }
+}

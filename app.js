@@ -32,6 +32,9 @@ ejs(app, {
 
 const router = require('koa-router')();
 
+const pageRouter = require('./router/page');
+router.use('/page', pageRouter.routes());
+
 const apiRouter = require('./router/api');
 router.use('/api', apiRouter.routes());
 

@@ -1,0 +1,85 @@
+.define-shop {
+    position: fixed;
+    top: 44px;
+    width: 100%;
+    padding: 12px;
+    background-color: #fff;
+    box-sizing: border-box;
+
+    form {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 12px;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
+
+    input {
+        display: block;
+        padding: 9px 5px;
+        margin: 0;
+        font-size: 14px;
+        color: #999;
+        line-height: 1;
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        outline: none;
+        box-sizing: border-box;
+        &.hint {
+            border: 1px solid #f00;
+        }
+    }
+    .input-row {
+        width: 100%;
+        margin-bottom: 12px;
+        text-align: center;
+        #flex.display();
+        #flex.align-items();
+        input[name=name] {
+            margin-right: .5em;
+            #flex.flex();
+        }
+        input[name=count] {
+            width: 86px;
+        }
+    }
+
+
+
+    .btn-submit,
+    .btn-add {
+        display: block;
+        width: 100%;
+        padding: 0;
+        font-size: 14px;
+        line-height: 32px;
+        color: #fff;
+        border-radius: 4px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .btn-submit {
+        border: none;
+        background-color: #83DCDE;
+    }
+
+    .btn-add {
+        color: #83DCDE;
+        border: 1px solid #ddd;
+        vertical-align: middle;
+
+        &:before {
+            position: relative;
+            top: -2px;
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            vertical-align: middle;
+            background: url(./icon/icon-add-define.png) no-repeat;
+            content: ' ';
+        }
+    }
+}

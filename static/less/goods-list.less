@@ -1,0 +1,100 @@
+.goods-list {
+    h3 {
+        padding: 0 12px;
+        font-size: 14px;
+        font-weight: normal;
+        color: #6CD6D8;
+        &:before {
+            position: relative;
+            top: 2px;
+            left: -12px;
+            display: inline-block;
+            width: 4px;
+            height: 15px;
+            background-color: #83DCDE;
+            content: ' ';
+        }
+    }
+    ul {
+        padding: 0;
+    }
+    li {
+        padding: 0 3px 0 12px;
+        list-style: none;
+        border-top: 1px solid #F5F5F5;
+
+        font-size: 14px;
+        color: #999;
+
+        &:last-child {
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        span {
+            margin: 0 3px 0 12px;
+        }
+
+        .necessary:after {
+            display: inline-block;
+            width: 26px;
+            height: 40px;
+            margin-left: .5em;
+            background: url(./icon/icon-necessary.png) no-repeat;
+            vertical-align: middle;
+            content: ' ';
+        }
+
+        .title {
+            line-height: 40px;
+            #flex.display();
+            #flex.align-items();
+            label,
+            span,
+            input {
+                display: block;
+            }
+            label {
+                color: #333;
+                #flex.flex();
+                white-space:nowrap;
+                text-overflow:ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        .description {
+            display: none;
+            padding-right: 8px;
+            overflow: hidden;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        &.expand .description {
+            display: block;
+        }
+    }
+
+    &.goods-list-done li .title label {
+        color: #999;
+    }
+
+    &.goods-list-define {
+        margin-top: 58px;
+        &.form-show {
+            margin-top: 105px;
+        }
+        input[type=checkbox] {
+            background: url(./icon/icon-add.png) no-repeat;
+            &.defined {
+                background: url(./icon/icon-remove.png) no-repeat;
+            }
+        }
+        input[type=checkbox]:checked {
+            background: url(./icon/icon-delete.png) no-repeat;
+            &.defined {
+                background: url(./icon/icon-remove.png) no-repeat;
+            }
+        }
+    }
+}

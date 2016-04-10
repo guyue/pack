@@ -1,0 +1,46 @@
+.confirm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .68);
+    z-index: 10;
+    .confirm-container {
+        position: absolute;
+        top: 150px;
+        left: 50%;
+        width: 230px;
+        margin-left: -115px;
+        background: #fff;
+        border-radius: 8px;
+        p {
+            padding: 34px;
+            margin: 0;
+            font-size: 14px;
+            color: #777;
+            text-align: center;
+        }
+        .confirm-shop {
+            border-top: 1px solid #eee;
+            #flex.display();
+            #flex.align-items();
+            button {
+                display: block;
+                padding: 0;
+                font-size: 16px;
+                line-height: 40px;
+                text-align: center;
+                color: #FF858A;
+                background-color: transparent;
+                border: none;
+                border-right: 1px solid #eee;
+                outline: none;
+                #flex.flex();
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    }
+}
