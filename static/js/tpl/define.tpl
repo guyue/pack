@@ -5,13 +5,6 @@
 <div class="container">
     <div class="define-shop">
         <a class="btn-add" href="javascript: void 0;">添加自定义</a>
-        <form>
-            <div class="input-row">
-                <input type="text" placeholder="名称" name="name">
-                <input type="text" placeholder="数量" name="count">
-            </div>
-            <button type="submit" class="btn-submit">完成</button>
-        </form>
     </div>
     <div class="goods-list goods-list-define">
         <ul>
