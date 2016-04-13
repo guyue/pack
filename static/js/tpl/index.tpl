@@ -10,9 +10,6 @@
     <div class="container-shop">
         <div class="progress">
             <div class="progress-container">
-                <div class="progress-bar" style="width: 30%;">
-                    <span>30%</span>
-                </div>
             </div>
         </div>
         <a class="btn-edit" href="#/define/0">添加</a>

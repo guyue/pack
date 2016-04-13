@@ -4,10 +4,10 @@ define(function (require, exports, module) {
     var Backbone = require('backbone'),
         Hogan = require('hogan'),
         $ = require('jquery'),
-        IndexView;
+        ProgressView;
 
-    IndexView = Backbone.View.extend({
-        template: Hogan.compile(require('../tpl/index.tpl')),
+    ProgressView = Backbone.View.extend({
+        template: Hogan.compile(require('../tpl/progress.tpl')),
 
         initialize: function () {
             this.render();
@@ -15,12 +15,11 @@ define(function (require, exports, module) {
 
         render: function () {
             this.$el.html(this.template.render());
-            $('body').append(this.$el);
-            require('./progress')();
+            $('.progress-container').html(this.$el);
         }
     });
 
     module.exports = function () {
-        return new IndexView();
+        return new ProgressView();
     };
 });
