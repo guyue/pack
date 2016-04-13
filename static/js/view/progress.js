@@ -7,6 +7,8 @@ define(function (require, exports, module) {
         ProgressView;
 
     ProgressView = Backbone.View.extend({
+        className: 'progress-bar',
+
         template: Hogan.compile(require('../tpl/progress.tpl')),
 
         initialize: function () {
@@ -15,6 +17,7 @@ define(function (require, exports, module) {
 
         render: function () {
             this.$el.html(this.template.render());
+            this.$el.css('width', '30%');
             $('.progress-container').html(this.$el);
         }
     });
