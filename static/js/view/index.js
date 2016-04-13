@@ -9,12 +9,41 @@ define(function (require, exports, module) {
     IndexView = Backbone.View.extend({
         template: Hogan.compile(require('../tpl/index.tpl')),
 
-        initialize: function () {
-            this.render();
+        events: {
+            'click .nav>li>a': 'navigate'
         },
 
-        render: function () {
-            this.$el.html(this.template.render());
+        navigate: function (e) {
+            e.preventDefault();
+
+            var fragment = e.currentTarget.hash,
+                dispatcher = require('../dispatcher'),
+                options = {
+                    trigger: true,
+                    replace: true
+                };
+
+            dispatcher.trigger('router.navigate', fragment, options);
+        },
+
+        initialize: function (options) {
+            this.render(options.category);
+        },
+
+        render: function (category) {
+            var data = {
+                nav: [{
+                    category: 0,
+                    title: '待产妈妈',
+                    isCurrent: category === 0
+                }, {
+                    category: 1,
+                    title: '新生宝宝',
+                    isCurrent: category === 1
+                }],
+                category: category
+            };
+            this.$el.html(this.template.render(data));
             $('body').append(this.$el);
             this.renderProgress();
             this.renderGoodsList();
@@ -44,7 +73,7 @@ define(function (require, exports, module) {
         }
     });
 
-    module.exports = function () {
-        return new IndexView();
+    module.exports = function (options) {
+        return new IndexView(options);
     };
 });

@@ -1,8 +1,14 @@
 <div class="header-nav">
     <h1>待产包</h1>
     <ul class="nav">
-        <li><h2>待产妈妈</h2></li>
-        <li><a href="#/index/1"><h2>新生宝宝</h2></a></li>
+        {{#nav}}
+            {{#isCurrent}}
+                <li><h2>{{title}}</h2></li>
+            {{/isCurrent}}
+            {{^isCurrent}}
+                <li><a href="#/index/{{category}}"><h2>{{title}}</h2></a></li>
+            {{/isCurrent}}
+        {{/nav}}
     </ul>
 </div>
 
@@ -12,6 +18,6 @@
             <div class="progress-container">
             </div>
         </div>
-        <a class="btn-edit" href="#/define/0">添加</a>
+        <a class="btn-edit" href="#/define/{{category}}">添加</a>
     </div>
 </div>
