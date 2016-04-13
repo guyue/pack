@@ -7,13 +7,18 @@ define(function (require, exports, module) {
 
     Router = Backbone.Router.extend({
         routes: {
-            '(/)': 'index'
+            '(/)': 'index',
+            'define(/)': 'define'
         },
 
         index: function () {
             var view = require('./view/index');
 
             view();
+        },
+
+        define: function () {
+            require('./view/define')();
         }
     });
 
