@@ -16,7 +16,26 @@ define(function (require, exports, module) {
         render: function () {
             this.$el.html(this.template.render());
             $('body').append(this.$el);
-            require('./progress')();
+            this.renderProgress();
+        },
+
+        renderProgress: function () {
+            var progressViewFactory = require('./progress'),
+                progressModelFactory = require('../model/progress'),
+                progressModel;
+
+            progressModel = progressModelFactory({
+                value: 10
+            });
+
+            progressViewFactory({
+                model: progressModel
+            });
+
+            setInterval(function () {
+                var value = progressModel.get('value');
+                progressModel.set('value', ++value);
+            }, 1000);
         }
     });
 

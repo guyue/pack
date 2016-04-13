@@ -1,1 +1,1 @@
-<span>30%</span>
+<span>{{ value }}%</span>

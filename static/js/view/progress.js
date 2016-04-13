@@ -13,16 +13,17 @@ define(function (require, exports, module) {
 
         initialize: function () {
             this.render();
+            this.listenTo(this.model, 'change', this.render);
         },
 
         render: function () {
-            this.$el.html(this.template.render());
-            this.$el.css('width', '30%');
+            this.$el.html(this.template.render(this.model.toJSON()));
+            this.$el.css('width', this.model.get('value') + '%');
             $('.progress-container').html(this.$el);
         }
     });
 
-    module.exports = function () {
-        return new ProgressView();
+    module.exports = function (options) {
+        return new ProgressView(options);
     };
 });
