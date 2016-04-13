@@ -1,17 +1,18 @@
 define(function (require, exports, module) {
     'use strict';
 
-    var Backbone = require('backbone'),
+    var BaseView = require('./base'),
         Hogan = require('hogan'),
         $ = require('jquery'),
         GoodsListView;
 
-    GoodsListView = Backbone.View.extend({
+    GoodsListView = BaseView.extend({
         className: 'goods-list',
 
         template: Hogan.compile(require('../tpl/goods-list.tpl')),
 
         initialize: function () {
+            this.gc();
             this.render();
         },
 

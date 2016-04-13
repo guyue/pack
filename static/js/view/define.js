@@ -1,15 +1,16 @@
 define(function (require, exports, module) {
     'use strict';
 
-    var Backbone = require('backbone'),
+    var BaseView = require('./base'),
         Hogan = require('hogan'),
         $ = require('jquery'),
         DefineView;
 
-    DefineView = Backbone.View.extend({
+    DefineView = BaseView.extend({
         template: Hogan.compile(require('../tpl/define.tpl')),
 
         initialize: function () {
+            this.gc();
             this.render();
         },
 

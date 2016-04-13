@@ -1,12 +1,12 @@
 define(function (require, exports, module) {
     'use strict';
 
-    var Backbone = require('backbone'),
+    var BaseView = require('./base'),
         Hogan = require('hogan'),
         $ = require('jquery'),
         IndexView;
 
-    IndexView = Backbone.View.extend({
+    IndexView = BaseView.extend({
         template: Hogan.compile(require('../tpl/index.tpl')),
 
         events: {
@@ -27,6 +27,7 @@ define(function (require, exports, module) {
         },
 
         initialize: function (options) {
+            this.gc();
             this.render(options.category);
         },
 

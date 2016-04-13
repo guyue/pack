@@ -1,17 +1,18 @@
 define(function (require, exports, module) {
     'use strict';
 
-    var Backbone = require('backbone'),
+    var BaseView = require('./base'),
         Hogan = require('hogan'),
         $ = require('jquery'),
         ProgressView;
 
-    ProgressView = Backbone.View.extend({
+    ProgressView = BaseView.extend({
         className: 'progress-bar',
 
         template: Hogan.compile(require('../tpl/progress.tpl')),
 
         initialize: function () {
+            this.gc();
             this.render();
             this.listenTo(this.model, 'change', this.render);
         },
