@@ -17,6 +17,7 @@ define(function (require, exports, module) {
             this.$el.html(this.template.render());
             $('body').append(this.$el);
             this.renderProgress();
+            this.renderGoodsList();
         },
 
         renderProgress: function () {
@@ -36,6 +37,10 @@ define(function (require, exports, module) {
                 var value = progressModel.get('value');
                 progressModel.set('value', ++value);
             }, 1000);
+        },
+
+        renderGoodsList: function () {
+            require('./goods-list')();
         }
     });
 
