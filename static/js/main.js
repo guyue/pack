@@ -1,5 +1,9 @@
 define(function (require, exports, module) {
     'use strict';
 
-    console.log('main');
+    var Backbone = require('backbone'),
+        router = require('./router');
+
+    router();
+    Backbone.history.start();
 });
