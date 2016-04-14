@@ -2,6 +2,7 @@ define(function (require, exports, module) {
     'use strict';
 
     var Backbone = require('backbone'),
+        LocalStorage = require('backbone.localstorage'),
         _ = require('underscore'),
         Filters,
         GoodsCollection,
@@ -42,6 +43,8 @@ define(function (require, exports, module) {
     };
 
     GoodsCollection = Backbone.Collection.extend({
+        localStorage: new LocalStorage('babytree-goods-list'),
+
         model: require('../model/goods'),
 
         url: '/api/goods.json',
@@ -51,11 +54,31 @@ define(function (require, exports, module) {
             return _.filter(this.toJSON(), filter);
         },
 
+        update: function () {
+            this.fetch({
+                ajaxSync: true,
+                remove: false,
+                success: function (collection, response, options) {
+                    if (collection.length) {
+                        collection.forEach(function (model) {
+                            model.save(null, {silent: true});
+                        });
+                    }
+                }
+            });
+        },
+
         comparator: function (goods1, goods2) {
             if (goods1.get('timestamp') > goods2.get('timestamp')) {
                 return -1;
             }
             if (goods1.get('timestamp') < goods2.get('timestamp')) {
+                return 1;
+            }
+            if (goods1.get('id') < goods2.get('id')) {
+                return -1;
+            }
+            if (goods1.get('id') > goods2.get('id')) {
                 return 1;
             }
             return 0;
@@ -66,6 +89,7 @@ define(function (require, exports, module) {
         if (!goodsCollection) {
             goodsCollection = new GoodsCollection();
             goodsCollection.fetch();
+            goodsCollection.update();
         }
         return goodsCollection;
     };
