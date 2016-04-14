@@ -30,7 +30,7 @@
 }
 
 .header-nav {
-    height: 81px;
+    height: 150px;
 }
 
 .nav {
@@ -77,5 +77,66 @@
                 background-color: #ff9398;
             }
         }
+    }
+}
+
+.nav-shop {
+    width: 100%;
+    padding: 12px;
+    #flex.display();
+    #flex.align-items();
+    box-sizing: border-box;
+    background-color: #fff;
+    .progress {
+        padding: 20px 35px 0 0;
+        #flex.flex();
+        .progress-container {
+            position: relative;
+            height: 6px;
+            background-color: #fbf7f5;
+            border-radius: 3px;
+            .progress-bar {
+                position: absolute;
+                left: 0;
+                top: 0;
+                max-width: 100%;
+                height: 6px;
+                background-color: #6cd6d8;
+                border-radius: 3px;
+                span {
+                    position: absolute;
+                    top: 12px;
+                    right: -35px;
+                    display: block;
+                    width: 35px;
+                    height: 22px;
+                    font-size: 10px;
+                    color: #6cd6d8;
+                    &:before {
+                        position: absolute;
+                        top: -38px;
+                        left: 0;
+                        width: 26px;
+                        height: 22px;
+                        background: url(./icon/icon-flag.png) no-repeat;
+                        content: '';
+                    }
+                }
+            }
+        }
+    }
+
+    .btn-edit {
+        display: block;
+        width: 45px;
+        height: 45px;
+        padding-top: 23px;
+        font-size: 12px;
+        text-align: center;
+        color: #6CD6D8;
+        background: url(./icon/icon-edit.png) no-repeat;
+        border: 1px solid #eee;
+        border-radius: 50px;
+        box-sizing: border-box;
     }
 }

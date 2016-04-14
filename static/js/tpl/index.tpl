@@ -10,14 +10,14 @@
             {{/isCurrent}}
         {{/nav}}
     </ul>
-</div>
-
-<div class="container">
-    <div class="container-shop">
+    <div class="nav-shop">
         <div class="progress">
             <div class="progress-container">
             </div>
         </div>
         <a class="btn-edit" href="#/define/{{category}}">添加</a>
     </div>
+</div>
+
+<div class="container">
 </div>
