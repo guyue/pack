@@ -11,10 +11,17 @@ define(function (require, exports, module) {
 
         events: {
             'click .btn-back': 'back',
+            'click .btn-add': 'add'
         },
 
         back: function () {
             history.back();
+        },
+
+        add: function () {
+            require('./form')({
+                category: this.category
+            });
         },
 
         initialize: function (options) {

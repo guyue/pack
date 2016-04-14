@@ -21,7 +21,7 @@ define(function (require, exports, module) {
 
         initialize: function (options) {
             if (!this.get('timestamp')) {
-                if (this.get('types') === 2) {
+                if (this.get('type') === 2) {
                     this.set('timestamp', (new Date()).getTime());
                 } else {
                     this.set('timestamp', 1);
