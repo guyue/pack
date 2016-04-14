@@ -12,7 +12,7 @@
     </ul>
 </div>
 
-<div class="container container-fixed">
+<div class="container">
     <div class="container-shop">
         <div class="progress">
             <div class="progress-container">

@@ -10,7 +10,7 @@ define(function (require, exports, module) {
         routes: {
             '(/)': 'index',
             'index/:category': 'index',
-            'define(/)': 'define'
+            'define/:category': 'define'
         },
 
         index: function (category) {
@@ -19,8 +19,10 @@ define(function (require, exports, module) {
             });
         },
 
-        define: function () {
-            require('./view/define')();
+        define: function (category) {
+            require('./view/define')({
+                category: parseInt(category, 10) || 0
+            });
         }
     });
 

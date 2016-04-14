@@ -9,18 +9,24 @@ define(function (require, exports, module) {
     DefineView = BaseView.extend({
         template: Hogan.compile(require('../tpl/define.tpl')),
 
-        initialize: function () {
+        initialize: function (options) {
             this.gc();
+            this.category = options.category;
             this.render();
         },
 
         render: function () {
             this.$el.html(this.template.render());
             $('body').append(this.$el);
+            require('./goods-list')({
+                className: 'goods-list goods-list-define',
+                category: this.category,
+                dataType: 'goods-list-define'
+            });
         }
     });
 
-    module.exports = function () {
-        return new DefineView();
+    module.exports = function (options) {
+        return new DefineView(options);
     };
 });

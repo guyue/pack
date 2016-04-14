@@ -28,21 +28,24 @@ define(function (require, exports, module) {
 
         initialize: function (options) {
             this.gc();
-            this.render(options.category);
+
+            this.category = options.category;
+
+            this.render();
         },
 
-        render: function (category) {
+        render: function () {
             var data = {
                 nav: [{
                     category: 0,
                     title: '待产妈妈',
-                    isCurrent: category === 0
+                    isCurrent: this.category === 0
                 }, {
                     category: 1,
                     title: '新生宝宝',
-                    isCurrent: category === 1
+                    isCurrent: this.category === 1
                 }],
-                category: category
+                category: this.category
             };
             this.$el.html(this.template.render(data));
             $('body').append(this.$el);
@@ -70,7 +73,17 @@ define(function (require, exports, module) {
         },
 
         renderGoodsList: function () {
-            require('./goods-list')();
+            require('./goods-list')({
+                category: this.category,
+                dataType: 'goods-list-left',
+                title: '未完成'
+            });
+            require('./goods-list')({
+                className: 'goods-list goods-list-done',
+                category: this.category,
+                dataType: 'goods-list-done',
+                title: '已完成'
+            });
         }
     });
 
