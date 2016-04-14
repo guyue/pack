@@ -40,8 +40,20 @@ define(function (require, exports, module) {
                 id = this.getId(target.getAttribute('data-id')),
                 model = this.collection.get(id);
 
-            model.set('isDone', target.checked);
-            model.save();
+            if (this.dataType === 'goods-list-define') {
+                if (model.get('type') === 2) {
+                    target.checked = true;
+                    require('./confirm')({
+                        model: model
+                    });
+                } else {
+                    model.set('isSelect', target.checked);
+                    model.save(null, {silent: true});
+                }
+            } else {
+                model.set('isDone', target.checked);
+                model.save();
+            }
         },
 
         initialize: function (options) {
