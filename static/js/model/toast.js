@@ -2,13 +2,13 @@ define(function (require, exports, module) {
     'use strict';
 
     var Backbone = require('backbone'),
-        Toast;
+        ToastModel;
 
-    Toast = Backbone.Model.extend({
+    ToastModel = Backbone.Model.extend({
         defaults: {
             message: 'error!'
         }
     });
 
-    module.exports = Toast;
+    module.exports = ToastModel;
 });

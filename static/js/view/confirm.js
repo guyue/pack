@@ -3,9 +3,9 @@ define(function (require, exports, module) {
 
     var $ = require('jquery'),
         Backbone = require('backbone'),
-        Confirm;
+        ConfirmView;
 
-    Confirm = Backbone.View.extend({
+    ConfirmView = Backbone.View.extend({
         className: 'confirm',
 
         template: require('../tpl/confirm.tpl'),
@@ -37,6 +37,6 @@ define(function (require, exports, module) {
     });
 
     module.exports = function (options) {
-        return new Confirm(options);
+        return new ConfirmView(options);
     };
 });

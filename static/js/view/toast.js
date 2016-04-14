@@ -5,9 +5,9 @@ define(function (require, exports, module) {
         Hogan = require('hogan'),
         Backbone = require('backbone'),
         template = require('../tpl/toast.tpl'),
-        Toast;
+        ToastView;
 
-    Toast = Backbone.View.extend({
+    ToastView = Backbone.View.extend({
         className: 'toast',
 
         template: Hogan.compile(template),
@@ -31,7 +31,7 @@ define(function (require, exports, module) {
     });
 
     module.exports = function (toastModel) {
-        return new Toast({
+        return new ToastView({
             model: toastModel
         });
     };
