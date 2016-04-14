@@ -54,6 +54,15 @@ define(function (require, exports, module) {
             return _.filter(this.toJSON(), filter);
         },
 
+        getProgress: function (category, dataType1, dataType2) {
+            var data1 = this.getData(category, dataType1),
+                data2 = this.getData(category, dataType2);
+            if (data1.length === 0 && data2.length === 0) {
+                return 0;
+            }
+            return Math.round(data2.length / (data1.length + data2.length) * 100);
+        },
+
         update: function () {
             this.fetch({
                 ajaxSync: true,

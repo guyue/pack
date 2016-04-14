@@ -53,23 +53,30 @@ define(function (require, exports, module) {
             this.renderGoodsList();
         },
 
+        getProgress: function () {
+            var goodsCollection = require('../collection/goods')(),
+                category = this.category;
+
+            return goodsCollection.getProgress(category, 'goods-list-left', 'goods-list-done');
+        },
+
         renderProgress: function () {
             var progressViewFactory = require('./progress'),
                 progressModelFactory = require('../model/progress'),
+                goodsCollection = require('../collection/goods')(),
                 progressModel;
 
             progressModel = progressModelFactory({
-                value: 10
+                value: this.getProgress()
             });
 
             progressViewFactory({
                 model: progressModel
             });
 
-            setInterval(function () {
-                var value = progressModel.get('value');
-                progressModel.set('value', ++value);
-            }, 1000);
+            progressModel.listenTo(goodsCollection, 'sync', function () {
+                progressModel.set('value', this.getProgress());
+            }.bind(this));
         },
 
         renderGoodsList: function () {
