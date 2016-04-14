@@ -14,6 +14,7 @@ define(function (require, exports, module) {
         events: {
             'click .title>label': 'toggleDescription',
             'click .title>span': 'toggleDescription',
+            'change input[type=checkbox]': 'toggleDoneState'
         },
 
         toggleDescription: function (e) {
@@ -22,6 +23,25 @@ define(function (require, exports, module) {
             $parent = $parent.parents('li');
 
             $parent.toggleClass('expand');
+        },
+
+        getId: function (id) {
+            var value = parseInt(id, 10);
+
+            if (String(value) === id) {
+                return value;
+            }
+
+            return id;
+        },
+
+        toggleDoneState: function (e) {
+            var target = e.target,
+                id = this.getId(target.getAttribute('data-id')),
+                model = this.collection.get(id);
+
+            model.set('isDone', target.checked);
+            model.save();
         },
 
         initialize: function (options) {
