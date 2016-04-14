@@ -9,6 +9,14 @@ define(function (require, exports, module) {
     DefineView = BaseView.extend({
         template: Hogan.compile(require('../tpl/define.tpl')),
 
+        events: {
+            'click .btn-back': 'back',
+        },
+
+        back: function () {
+            history.back();
+        },
+
         initialize: function (options) {
             this.gc();
             this.category = options.category;
