@@ -1,4 +1,4 @@
-# Pack
+# MVC Backbone Demo
 > 基于Backbone的MVC演示项目
 
 ## PPT
